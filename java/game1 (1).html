@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8"/>
+<title>
+Game
+</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+window.onload = function() {
+
+var mini,maxi;
+    mini=1,maxi=25
+   
+     
+        var randarray=new Array();
+	var ranarray=new Array();
+	for(var i=0;i<25;i++)
+	{
+	ranarray[i]=i;
+	}
+        var elem = document.querySelectorAll(".circle");
+    	
+    
+      
+      var r=Math.floor(Math.random()*(3))+4;
+      
+      for(var i = 0; i <r; i++ ) 
+      {
+        var rn=Math.floor(Math.random()*(maxi-mini+1))+mini;
+        randarray[i]=rn;
+       console.log(randarray[i]);
+        $(elem[rn]).css("background-color","blue");
+       
+      } 
+    	setTimeout(function(){
+    		reversing(randarray);
+		ending(randarray);
+		}, 2000);
+
+   
+    console.log("now wait for 2 sec...")
+	
+	
+	
+    function reversing(randarray){
+    	for(var k=0;k<r;k++)
+    	{
+    		console.log(randarray[k]);
+    		$(elem[randarray[k]]).css("background-color","lightgray");
+    	
+    	}
+    
+    }
+	
+   
+    
+	ranarray=$.grep(ranarray,function(value){
+		return $.inArray(value,randarray)<0;
+	});
+
+
+    
+    //game starts here now...
+    
+    function ending(){
+	for(var l=0;l<r;l++ ) {
+	elem[randarray[l]].addEventListener("click",function() {
+		
+
+            
+                 $(this).css("background-color","blue");
+	});
+	
+	
+    
+  
+    for(var p=0;p<ranarray.length;p++ ) {
+        
+        elem[ranarray[p]].addEventListener("click",function() {
+            
+                $(this).css("background-color","red");
+                   
+	});
+	}
+
+	
+}
+
+ 	
+ 	
+}
+
+
+}
+
+</script>
+
+<style text="text/css">
+
+.table
+{
+	background-color:black;
+	height:260px;
+	width:510px;
+}
+.circle
+{
+	background-color:lightgray;
+	height:50px;
+	width:100px;
+	border-radius:50%;
+	float:left;
+    margin-left: 2px;
+    margin-bottom: 2px
+}
+
+</style>
+
+
+</head>
+
+
+
+<body>
+<div class="table">
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+<div class="circle"></div>
+</div>
+
+</body>
+</html>
